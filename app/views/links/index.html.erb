@@ -1,2 +1,20 @@
 <%= link_to "Sign Out", logout_path, method: :delete %>
+
 <h1>Links go here</h1>
+
+<%= form_for(@link) do |f| %>
+  <%= f.label :link %>
+  <%= f.text_field :link %>
+
+  <%= f.label :title %>
+  <%= f.password_field :title %>
+
+  <%= f.submit "Add Link" %>
+<% end %>
+
+<h2>Filters</h2>
+<p>By text:</p>
+<button>Only Unread Links</button>
+<button>Only Read Links</button>
+
+<hr>
