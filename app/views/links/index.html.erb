@@ -26,9 +26,13 @@
 <hr>
 
 <% @links.each do |l| %>
-  <p>Title: <%= l.title %></p>
-  <p>URL: <%= l.url %></p>
-  <p>Read?: <%= l.read %></p>
-  <button>Mark as Read</button>
-  <button>Edit</button>
+  <div class='link'>
+    <p>Title: <%= l.title %></p>
+    <p>URL: <%= l.url %></p>
+    <div class='read-status'>
+      <p>Read?: <%= l.read %></p>
+    </div>  
+    <button>Mark as Read</button>
+    <button>Edit</button>
+  </div>
 <% end %>
