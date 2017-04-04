@@ -1,13 +1,19 @@
-<%= link_to "Sign Out", logout_path, method: :delete %>
+<%= link_to "Sign Out", logout_path, method: :delete %><br>
+
+<% if @link.errors.any? %>
+  <% @link.errors.full_messages.each do |msg| %>
+    <%= msg %>
+  <% end %>
+<% end %>
 
 <h1>Links go here</h1>
 
 <%= form_for(@link) do |f| %>
-  <%= f.label :link %>
-  <%= f.text_field :link %>
+  <%= f.label :url %>
+  <%= f.text_field :url %>
 
   <%= f.label :title %>
-  <%= f.password_field :title %>
+  <%= f.text_field :title %>
 
   <%= f.submit "Add Link" %>
 <% end %>
@@ -18,3 +24,11 @@
 <button>Only Read Links</button>
 
 <hr>
+
+<% @links.each do |l| %>
+  <p>Title: <%= l.title %></p>
+  <p>URL: <%= l.url %></p>
+  <p>Read?: <%= l.read %></p>
+  <button>Mark as Read</button>
+  <button>Edit</button>
+<% end %>

@@ -1,4 +1,6 @@
 class Link < ActiveRecord::Base
-  validates :link, :url => true
+  validates :url, :url => true
+  validates :url, :title, presence: true
 
+  belongs_to :user
 end
