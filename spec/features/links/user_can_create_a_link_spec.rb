@@ -27,8 +27,8 @@ RSpec.feature "User can create a link", type: :feature do
   scenario "registered user can only see their own links" do
     user_1 = User.create!(email: "molly@molly.com", password: "password")
     user_2 = User.create!(email: "erin@erin.com", password: "password")
-    user_2_link = Link.create!(url: "http://www.google.com", title: "Google", user_id: user_1.id)
-    user_2_link = Link.create!(url: "http://www.test.com", title: "test", user_id: user_2.id)
+    Link.create!(url: "http://www.google.com", title: "Google", user_id: user_1.id)
+    Link.create!(url: "http://www.test.com", title: "test", user_id: user_2.id)
 
     visit login_path
     fill_in "Email", with: "molly@molly.com"

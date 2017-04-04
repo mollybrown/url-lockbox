@@ -31,8 +31,8 @@
     <p>URL: <%= l.url %></p>
     <div class='read-status'>
       <p>Read?: <%= l.read %></p>
-    </div>  
+    </div>
     <button>Mark as Read</button>
-    <button>Edit</button>
+    <%= button_to "Edit", edit_link_path(l), :method => "get" %>
   </div>
 <% end %>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: "links#index"
 
-  resources :links, only: [:index, :new, :create, :edit]
+  resources :links, only: [:index, :new, :create, :edit, :update]
   resources :users, only: [:new, :create]
 
   get '/login',     to: 'sessions#new'

@@ -20,6 +20,21 @@ class LinksController < ApplicationController
     end
   end
 
+  def edit
+    @link = Link.find(params[:id])
+  end
+
+  def update
+    @link = Link.find(params[:id])
+    @link.update(link_params)
+    if @link.save
+      flash[:success] = "#{@link.title} successfully updated!"
+      redirect_to '/'
+    else
+      render :edit
+    end
+  end
+
   private
 
   def link_params
