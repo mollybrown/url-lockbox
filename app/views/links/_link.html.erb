@@ -1,0 +1,9 @@
+<div class='link'>
+  <p>Title: <%= link.title %></p>
+  <p>URL: <%= link.url %></p>
+  <div class='read-status'>
+    <p>Read?: <%= link.read %></p>
+  </div>
+  <button>Mark as Read</button>
+  <%= button_to "Edit", edit_link_path(link), :method => "get" %>
+</div>

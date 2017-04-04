@@ -15,7 +15,7 @@
   <%= f.label :title %>
   <%= f.text_field :title %>
 
-  <%= f.submit "Add Link" %>
+  <%= f.submit "Add Link", id: "add-link" %>
 <% end %>
 
 <h2>Filters</h2>
@@ -24,15 +24,16 @@
 <button>Only Read Links</button>
 
 <hr>
-
-<% @links.each do |l| %>
-  <div class='link'>
-    <p>Title: <%= l.title %></p>
-    <p>URL: <%= l.url %></p>
-    <div class='read-status'>
-      <p>Read?: <%= l.read %></p>
+<div class='links'>
+  <% @links.each do |link| %>
+    <div class='link'>
+      <p>Title: <%= link.title %></p>
+      <p>URL: <%= link.url %></p>
+      <div class='read-status'>
+        <p>Read?: <%= link.read %></p>
+      </div>
+      <button>Mark as Read</button>
+      <%= button_to "Edit", edit_link_path(link), :method => "get" %>
     </div>
-    <button>Mark as Read</button>
-    <%= button_to "Edit", edit_link_path(l), :method => "get" %>
-  </div>
-<% end %>
+  <% end %>
+</div>
