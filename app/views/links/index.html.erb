@@ -25,8 +25,9 @@
 
 <hr>
 
+<ul id="links">
   <% @links.each do |link| %>
-    <div class='link'>
+    <li class='link'>
       <p class='hidden'><%= link.id %></p>
       <p>Title: <%= link.title %></p>
       <p>URL: <%= link.url %></p>
@@ -35,5 +36,6 @@
       </div>
       <button class='mark-as-read'>Mark as Read</button>
       <%= button_to "Edit", edit_link_path(link), :method => "get" %>
-    </div>
+    </li>
   <% end %>
+</ul>
