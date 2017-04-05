@@ -24,16 +24,16 @@
 <button>Only Read Links</button>
 
 <hr>
-<div class='links'>
+
   <% @links.each do |link| %>
     <div class='link'>
+      <p class='hidden'><%= link.id %></p>
       <p>Title: <%= link.title %></p>
       <p>URL: <%= link.url %></p>
       <div class='read-status'>
         <p>Read?: <%= link.read %></p>
       </div>
-      <button>Mark as Read</button>
+      <button class='mark-as-read'>Mark as Read</button>
       <%= button_to "Edit", edit_link_path(link), :method => "get" %>
     </div>
   <% end %>
-</div>

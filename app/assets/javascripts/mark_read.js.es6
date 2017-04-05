@@ -5,6 +5,10 @@ $( document ).ready(function(){
 function markAsRead(e) {
   e.preventDefault();
 
+  // var $link = $(this).parents('.link').children(".hidden").text();
+  // console.log($link);
+  // var linkId = $link.data('link-id');
+
   var $link = $(this).parents('.link');
   var linkId = $link.data('link-id');
 

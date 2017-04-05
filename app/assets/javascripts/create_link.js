@@ -3,12 +3,12 @@ $(document).ready(function(){
      event.preventDefault();
      createNewLink();
   })
-}
+})
 
 function createNewLink() {
   var linkData = {
     link: {
-      url: $("#link_url").val()
+      url: $("#link_url").val(),
       title: $("#link_title").val()
     }
   }
