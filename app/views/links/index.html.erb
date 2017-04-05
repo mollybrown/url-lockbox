@@ -19,9 +19,9 @@
 <% end %>
 
 <h2>Filters</h2>
-<p>By text:</p>
-<button>Only Unread Links</button>
-<button>Only Read Links</button>
+<p>By text: <%= text_field_tag 'filter' %></p>
+<button id='unread-links'>Only Unread Links</button>
+<button id='read-links'>Only Read Links</button>
 
 <hr>
 
