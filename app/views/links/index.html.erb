@@ -27,6 +27,17 @@
 
 <div class="links">
   <% @links.each do |link| %>
-    <%= render partial: 'link', locals: {link: link } %>
+  <div class='link <%= link.read ? "read" : "unread" %>' id='<%=link.id%>'>
+    <span class='hidden'><%= link.id %></span>
+    <p id="link-title">Title: <%= link.title %></p>
+    <p id="link-url">URL: <%= link.url %></p>
+    <p>Read?: <span class='read-status'><%= link.read %></span></p>
+    <% if link.read %>
+      <button class='mark-as-unread'>Mark as Unread</button>
+    <% else %>
+      <button class='mark-as-read'>Mark as Read</button>
+    <% end %>
+    <%= button_to "Edit", edit_link_path(link), :method => "get" %>
+  </div>
   <% end %>
 </div>
