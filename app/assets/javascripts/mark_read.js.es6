@@ -31,12 +31,14 @@ function markAsUnread(e) {
 
 function updateLinkStatusToRead(link) {
   var $link = $(`.link[data-link-id=${link.id}]`);
-  $link.removeClass('.mark-as-unread').addClass('.mark-as-read');
+  $link.removeClass('.mark-as-unread').addClass('.mark-as-read')
+  $('.unread').css({"text-decoration":"line-through"})
 }
 
 function updateLinkStatusToUnread(link) {
   var $link = $(`.link[data-link-id=${link.id}]`)
-  $link.removeClass('.mark-as-read').addClass('.mark-as-unread');
+  $link.removeClass('.mark-as-read').addClass('.mark-as-unread')
+  $('.read').css({"text-decoration":"none"})
 }
 
 function displayFailure(failureData){
