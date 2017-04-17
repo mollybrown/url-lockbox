@@ -1,9 +1,13 @@
-<div class='link'>
-  <p>Title: <%= link.title %></p>
-  <p>URL: <%= link.url %></p>
-  <div class='read-status'>
-    <p>Read?: <%= link.read %></p>
+<div class='link <%= link.read ? "read" : "unread" %>' id='<%=link.id%>'>
+  <p id="link-id">id: <%= link.id %></p>
+  <p id="link-title">Title: <%= link.title %></p>
+  <p id="link-url">URL: <%= link.url %></p>
+  <p>Read?: <span class='read-status'><%= link.read %></span></p>
   </div>
-  <button class='mark-as-read'>Mark as Read</button>
+  <% if link.read %>
+    <button class='mark-as-unread'>Mark as Unread</button>
+  <% else %>
+    <button class='mark-as-read'>Mark as Read</button>
+  <% end %>
   <%= button_to "Edit", edit_link_path(link), :method => "get" %>
 </div>

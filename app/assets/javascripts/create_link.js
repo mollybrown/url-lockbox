@@ -8,7 +8,7 @@ $(document).ready(function(){
 function createNewLink() {
   var linkData = {
     link: {
-      url: $("#link_url").val(),
+      url: $("#link-url").val(),
       title: $("#link_title").val()
     }
   }

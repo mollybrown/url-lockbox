@@ -25,17 +25,8 @@
 
 <hr>
 
-<ul id="links">
+<div class="links">
   <% @links.each do |link| %>
-    <li class='link'>
-      <p class='hidden'><%= link.id %></p>
-      <p>Title: <%= link.title %></p>
-      <p>URL: <%= link.url %></p>
-      <div class='read-status'>
-        <p>Read?: <%= link.read %></p>
-      </div>
-      <button class='mark-as-read'>Mark as Read</button>
-      <%= button_to "Edit", edit_link_path(link), :method => "get" %>
-    </li>
+    <%= render partial: 'link', locals: {link: link } %>
   <% end %>
-</ul>
+</div>
