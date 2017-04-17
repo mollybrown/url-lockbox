@@ -12,10 +12,10 @@
 
 <%= form_for(@link) do |f| %>
   <%= f.label :url %>
-  <%= f.text_field :url %>
+  <%= f.text_field :url, value: @link.url %>
 
   <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, value: @link.title %>
 
   <%= f.submit "Update Link" %>
 <% end %>
