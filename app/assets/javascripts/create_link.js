@@ -14,12 +14,12 @@ function createNewLink() {
   }
 
   $.ajax({
-    type: "POST",
-    url: "/",
+    method: "POST",
+    url: "/api/v1/links",
     data: LinkData
     })
     .done(function(formatNewLink) {
-      $(".link").prepend(formatNewLink);
+      $(".links").prepend(formatNewLink);
       $("#link_url").val("");
       $("#link_title").val("");
     });

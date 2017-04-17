@@ -9,9 +9,14 @@ class Api::V1::LinksController < ApplicationController
     end
   end
 
+  def hot_reads
+    @links = Link.all
+    render json: @links
+  end
+
   private
 
   def link_params
-    params.permit(:read)
+    params.permit(:read, :url, :title)
   end
 end

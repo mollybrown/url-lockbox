@@ -22,7 +22,7 @@ function markAsUnread(e) {
   var linkId = $(this).parents('.link').children(".hidden").text()
 
   $.ajax({
-    type: "PATCH",
+    method: "PATCH",
     url: "/api/v1/links/" + linkId,
     data: { read: false },
   }).then(updateLinkStatusToUnread)

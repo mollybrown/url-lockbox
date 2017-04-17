@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :links, only: [:update]
+      get '/links/hotreads', to: 'links#hot_reads'
     end
   end
 end
