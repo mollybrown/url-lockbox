@@ -1,6 +1,6 @@
 $( document ).ready(function(){
   $("body").on("click", ".mark-as-read", markAsRead)
-  $("body").on("click", ".mark-as-read", markAsUnread)
+  $("body").on("click", ".mark-as-unread", markAsUnread)
 })
 
 function markAsRead(e) {
@@ -12,7 +12,7 @@ function markAsRead(e) {
     type: "PATCH",
     url: "/api/v1/links/" + linkId,
     data: { read: true },
-  }).then(updateLinkStatus)
+  }).then(updateLinkStatusToRead)
     .fail(displayFailure);
 }
 
@@ -25,12 +25,18 @@ function markAsUnread(e) {
     type: "PATCH",
     url: "/api/v1/links/" + linkId,
     data: { read: false },
-  }).then(updateLinkStatus)
+  }).then(updateLinkStatusToUnread)
     .fail(displayFailure);
 }
 
-function updateLinkStatus(link) {
-  $(`.link[data-link-id=${link.id}]`).find(".read-status").text(link.read);
+function updateLinkStatusToRead(link) {
+  var $link = $(`.link[data-link-id=${link.id}]`);
+  $link.removeClass('.mark-as-unread').addClass('.mark-as-read');
+}
+
+function updateLinkStatusToUnread(link) {
+  var $link = $(`.link[data-link-id=${link.id}]`)
+  $link.removeClass('.mark-as-read').addClass('.mark-as-unread');
 }
 
 function displayFailure(failureData){
