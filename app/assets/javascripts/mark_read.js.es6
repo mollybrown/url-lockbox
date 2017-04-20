@@ -18,7 +18,7 @@ function markAsRead(e) {
 function updateLinkStatusToRead(link) {
   var $link = $(`.link[data-link-id=${link.id}]`);
   $link.removeClass('.mark-as-unread').addClass('.mark-as-read')
-  $('.unread').css({"text-decoration":"line-through","background-color":"gray"})
+  $('.unread').css({"text-decoration":"line-through","background-color":"#f2dede"})
 }
 
 function displayFailure(failureData){

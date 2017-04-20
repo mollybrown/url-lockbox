@@ -5,7 +5,7 @@ class Link < ActiveRecord::Base
   belongs_to :user
 
   def self.top_ten_links
-    Link.order(read_count: :desc)
+    Link.order(read_count: :desc).limit(10)
   end
 
   def hot_link?
