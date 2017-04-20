@@ -1,23 +1,25 @@
-<% if @user.errors.any? %>
-  <% @user.errors.full_messages.each do |msg| %>
-    <%= msg %>
+<div class="main">
+  <% if @user.errors.any? %>
+    <% @user.errors.full_messages.each do |msg| %>
+      <%= msg %>
+    <% end %>
   <% end %>
-<% end %>
 
-<h1>Sign Up</h1>
+  <h1>Sign Up</h1>
 
-<%= form_for(@user) do |f| %>
+  <%= form_for(@user) do |f| %>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
 
-  <%= f.submit "Create Account" %>
-<% end %>
+    <%= f.submit "Create Account" %>
+  <% end %>
 
-<p>Already a user? <%= link_to "Log in by clicking here", login_path %>
+  <p>Already a user? <%= link_to "Log in by clicking here", login_path %>
+</div>

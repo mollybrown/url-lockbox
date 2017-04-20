@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
   $("#filter").keyup(function(){
-    $(".links")
+    $("#all-links")
     .hide()
     .filter(":contains(" + $(this).val() + ")")
     .show();

@@ -14,11 +14,20 @@
  *= require_self
  */
 
-.link {
-  border: 1px solid black;
-  padding: 5px;
-}
+// .link {
+//   border: 1px solid black;
+//   padding: 5px;
+// }
 
 .hidden {
   display: none;
+}
+
+.main {
+  margin-top: 75px;
+}
+
+.logout {
+  font-weight: bold;
+  margin-top: 10px;
 }

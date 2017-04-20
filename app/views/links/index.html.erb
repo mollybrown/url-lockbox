@@ -1,43 +1,34 @@
-<%= link_to "Sign Out", logout_path, method: :delete %><br>
-
-<% if @link.errors.any? %>
-  <% @link.errors.full_messages.each do |msg| %>
-    <%= msg %>
-  <% end %>
-<% end %>
-
-<br>
-
-<%= form_for(@link) do |f| %>
-  <%= f.label :url %>
-  <%= f.text_field :url %>
-
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
-  <%= f.submit "Add Link", id: "add-link" %>
-<% end %>
-
-<h2>Filters</h2>
-<p>By text: <%= text_field_tag 'filter' %></p>
-<button id='unread-links'>Only Unread Links</button>
-<button id='read-links'>Only Read Links</button>
-
-<hr>
-
-<div class="links">
-  <% @links.each do |link| %>
-  <div class='link <%= link.read ? "read" : "unread" %>' id='<%=link.id%>'>
-    <span class='hidden'><%= link.id %></span>
-    <p id="link-title">Title: <%= link.title %></p>
-    <p id="link-url">URL: <%= link.url %></p>
-    <p>Read?: <span class='read-status'><%= link.read %></span></p>
-    <% if link.read %>
-      <button class='mark-as-unread'>Mark as Unread</button>
-    <% else %>
-      <button class='mark-as-read'>Mark as Read</button>
-    <% end %>
-    <%= button_to "Edit", edit_link_path(link), :method => "get" %>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <%= link_to "Sign Out", logout_path, method: :delete, class: "logout" %>
   </div>
+</nav>
+
+<div class="main">
+  <% if @link.errors.any? %>
+    <% @link.errors.full_messages.each do |msg| %>
+      <%= msg %>
+    <% end %>
   <% end %>
+
+  <br>
+
+  <%= render partial: "links/form" %>
+
+  <h2>Filters</h2>
+  <p>By text: <%= text_field_tag 'filter' %></p>
+  <button id='unread-links'>Only Unread Links</button>
+  <button id='read-links'>Only Read Links</button>
+
+  <hr>
+
+  <div id="all-links">
+    <% @links.each do |link| %>
+    <div class="panel panel-default">
+      <div class="panel-body">
+      <%= render partial: "links/link", :locals => {link: link} %>
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>

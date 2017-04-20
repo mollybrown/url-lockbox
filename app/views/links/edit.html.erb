@@ -1,21 +1,22 @@
-<% if @link.errors.any? %>
-  <% @link.errors.full_messages.each do |msg| %>
-    <%= msg %>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <%= link_to "Sign Out", logout_path, method: :delete, class: "logout" %>
+  </div>
+</nav>
+
+
+<div class="main">
+  <% if @link.errors.any? %>
+    <% @link.errors.full_messages.each do |msg| %>
+      <%= msg %>
+    <% end %>
   <% end %>
-<% end %>
 
-<br>
+  <br>
 
-<h1>Edit Link</h1>
+  <h1>Edit Link</h1>
 
-<br>
+  <br>
 
-<%= form_for(@link) do |f| %>
-  <%= f.label :url %>
-  <%= f.text_field :url, value: @link.url %>
-
-  <%= f.label :title %>
-  <%= f.text_field :title, value: @link.title %>
-
-  <%= f.submit "Update Link" %>
-<% end %>
+  <%= render partial: "links/form" %>
+</div>
