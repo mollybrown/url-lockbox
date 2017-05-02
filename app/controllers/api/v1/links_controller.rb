@@ -20,8 +20,9 @@ class Api::V1::LinksController < ApplicationController
   end
 
   def update
+    # byebug
     @link = Link.find(params[:id])
-    if @link.update_attributes(read: params["read"]) && @link.read
+    if @link.update_attributes(read: params["read"])
       @link.update(read_count: @link.read_count += 1)
       render json: @link, status: 200
     else

@@ -4,8 +4,10 @@ $( document ).ready(function(){
 
 function markAsRead(e) {
   e.preventDefault();
+  console.log("mark read clicked!");
 
-  var linkId = $(this).parents('.link').children(".hidden").text()
+  var linkId = $(this).parents('.link').children('#link-id').data('linkId');
+  console.log(linkId);
 
   $.ajax({
     type: "PATCH",
@@ -16,9 +18,13 @@ function markAsRead(e) {
 }
 
 function updateLinkStatusToRead(link) {
-  var $link = $(`.link[data-link-id=${link.id}]`);
-  $link.removeClass('.mark-as-unread').addClass('.mark-as-read')
-  $('.unread').css({"text-decoration":"line-through","background-color":"#f2dede"})
+  var $link = $(`.link[data-id=${link.id}]`);
+  $link.find(".read-status").text("true")
+
+  $link.removeClass('unread').addClass('read');
+  $link.find('.mark-as-read').removeClass('mark-as-read').text("Mark as Unread").addClass('mark-as-unread');
+
+  $link.css({"text-decoration":"line-through","background-color":"#f2dede"})
 }
 
 function displayFailure(failureData){
