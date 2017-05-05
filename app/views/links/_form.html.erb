@@ -1,11 +1,9 @@
-<%= form_for @link, remote: true do |f| %>
+<%= form_for @link do |f| %>
   <%= f.label :url %>
   <%= f.text_field :url, value: @link.url %>
 
   <%= f.label :title %>
   <%= f.text_field :title, value: @link.title %>
-
-   <%= f.hidden_field :flash, value: @flash, id: "flash-message" %>
 
   <%= f.submit "Add Link", id: "add-link" %>
 <% end %>

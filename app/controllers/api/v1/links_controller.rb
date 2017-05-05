@@ -6,8 +6,6 @@ class Api::V1::LinksController < ApplicationController
   end
 
   def create
-    # byebug
-    # @link = current_user.links.new(link_params)
     @link = current_user.links.new(url: params["link"]["url"],
                                    title: params["link"]["title"],
                                    user_id: current_user.id,
@@ -20,9 +18,8 @@ class Api::V1::LinksController < ApplicationController
   end
 
   def update
-    # byebug
     @link = Link.find(params[:id])
-    if @link.update_attributes(read: params["read"])
+    if @link.update_attributes(read: params["unread"])
       @link.update(read_count: @link.read_count += 1)
       render json: @link, status: 200
     else
@@ -30,9 +27,9 @@ class Api::V1::LinksController < ApplicationController
     end
   end
 
-  # private
-  #
-  # def link_params
-  #   params.permit(:link, :url, :title)
-  # end
+  private
+
+  def link_params
+    params.permit(:link, :url, :title)
+  end
 end

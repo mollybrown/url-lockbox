@@ -5,7 +5,7 @@
 </nav>
 
 <div class="main">
-  <div class="errors">
+  <div class="flash">
     <% if @link.errors.any? %>
       <% @link.errors.full_messages.each do |msg| %>
         <%= msg %>

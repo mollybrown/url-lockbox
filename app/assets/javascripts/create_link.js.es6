@@ -3,7 +3,7 @@ $(document).ready(function(){
 
   function createNewLink(e) {
     e.preventDefault();
-    $('.errors').empty();
+    $('.flash').empty();
 
     var linkData = {
       link: {
@@ -22,8 +22,9 @@ $(document).ready(function(){
         })
         .done((response) => {
           $('#all-links').prepend(response);
+          $('.flash').prepend("Link Added!")
           $("#link_url").val("");
           $("#link_title").val("");
-        }).fail(error => $('.errors').prepend(error.responseJSON));
+        }).fail(error => $('.flash').prepend(error.responseJSON));
     }
   });
