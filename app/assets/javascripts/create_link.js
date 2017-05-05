@@ -3,6 +3,8 @@ $(document).ready(function(){
 
   function createNewLink(e) {
     e.preventDefault();
+    $('.errors').empty();
+
     var linkData = {
       link: {
         url: $("#link_url").val(),
@@ -22,6 +24,6 @@ $(document).ready(function(){
           $('#all-links').prepend(response);
           $("#link_url").val("");
           $("#link_title").val("");
-        });
+        }).fail(error => $('.errors').prepend(error.responseJSON));
     }
   });

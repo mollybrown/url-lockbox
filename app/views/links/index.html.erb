@@ -5,11 +5,13 @@
 </nav>
 
 <div class="main">
-  <% if @link.errors.any? %>
-    <% @link.errors.full_messages.each do |msg| %>
-      <%= msg %>
+  <div class="errors">
+    <% if @link.errors.any? %>
+      <% @link.errors.full_messages.each do |msg| %>
+        <%= msg %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 
   <br>
 

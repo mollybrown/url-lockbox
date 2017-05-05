@@ -5,5 +5,7 @@
   <%= f.label :title %>
   <%= f.text_field :title, value: @link.title %>
 
+   <%= f.hidden_field :flash, value: @flash, id: "flash-message" %>
+
   <%= f.submit "Add Link", id: "add-link" %>
 <% end %>
