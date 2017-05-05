@@ -24,11 +24,7 @@
 
   <div id="all-links">
     <% @links.each do |link| %>
-    <div class="panel panel-default">
-      <div class="panel-body">
       <%= render partial: "links/link", :locals => {link: link} %>
-      </div>
-    </div>
     <% end %>
   </div>
 </div>

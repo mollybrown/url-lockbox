@@ -1,9 +1,9 @@
-<%= form_for(@link) do |f| %>
+<%= form_for @link, remote: true do |f| %>
   <%= f.label :url %>
   <%= f.text_field :url, value: @link.url %>
 
   <%= f.label :title %>
   <%= f.text_field :title, value: @link.title %>
 
-  <%= f.submit "Update Link" %>
+  <%= f.submit "Add Link", id: "add-link" %>
 <% end %>

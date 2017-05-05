@@ -4,7 +4,7 @@ class LinksController < ApplicationController
     if !current_user
       redirect_to login_path
     else
-      @links = current_user.links
+      @links = current_user.links.order('created_at DESC')
       @link = Link.new
     end
   end

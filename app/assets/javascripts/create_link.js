@@ -9,15 +9,19 @@ $(document).ready(function(){
         title: $("#link_title").val()
       }
     }
-    $.ajax({
-      method: "POST",
-      url: "/api/v1/links",
-      data: linkData
-      })
-      .done(function(formatNewLink) {
-        $("#all-links").prepend(formatNewLink);
-        $("#link_url").val("");
-        $("#link_title").val("");
-      });
+    addLink(linkData);
   }
-});
+
+    function addLink(linkData) {
+      $.ajax({
+        method: "POST",
+        url: "/api/v1/links",
+        data: linkData
+        })
+        .done((response) => {
+          $('#all-links').prepend(response);
+          $("#link_url").val("");
+          $("#link_title").val("");
+        });
+    }
+  });
