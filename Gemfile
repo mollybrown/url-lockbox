@@ -15,6 +15,7 @@ gem 'sprockets-es6'
 gem 'bcrypt', '~> 3.1.7'
 gem 'validate_url'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'babel-transpiler'
 
 group :development do
   gem 'web-console', '~> 2.0'
