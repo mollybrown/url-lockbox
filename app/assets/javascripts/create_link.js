@@ -20,11 +20,13 @@ $(document).ready(function(){
         url: "/api/v1/links",
         data: linkData
         })
-        .done((response) => {
+        .done(function(response) {
           $('#all-links').prepend(response);
           $('.flash').prepend("Link Added!")
           $("#link_url").val("");
           $("#link_title").val("");
-        }).fail(error => $('.flash').prepend(error.responseJSON));
+        }).fail(function(error) {
+          $('.flash').prepend(error.responseJSON);
+        });
     }
   });
